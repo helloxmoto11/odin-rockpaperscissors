@@ -68,3 +68,13 @@ button {
 #btn-retry {
     width: 200px;
 }
+
+#g-div {
+  position: absolute;
+  top: 21.5%;
+  left: 49%;
+  font-size: 50px;
+  margin-left: -250px;
+  color: red;
+  font-weight: 900;
+}
