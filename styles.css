@@ -1,0 +1,70 @@
+body {
+    background-color: darkslategrey;
+    color: white;
+    min-width: 600px;
+}
+.title {
+    text-align: center;
+    font-size: 80px; 
+    margin: 40px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 25px;
+}
+
+.content {
+    margin-bottom: 50px;
+}
+
+.score-board p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.score-board div {
+    height: 25px;
+}
+
+.round-score {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.round-score p {
+    margin: 0px 25px;    
+}
+
+.result {
+    margin-bottom: 0px;
+}
+
+.content p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 0 10px;
+    font-size: xx-large;
+    width: 150px;
+    padding: 10px 0px;
+    border-radius: 20px;
+}
+
+.btn-rty-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#btn-retry {
+    width: 200px;
+}

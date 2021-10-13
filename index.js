@@ -1,5 +1,57 @@
 console.log("Hello, World!")
 
+let score = 0;
+let roundCount = 1;
+
+const buttons = Array.from(document.getElementsByClassName("btn-play"));
+
+let results = Array.from(document.getElementsByClassName("result"));
+let resultText = results[0];
+
+let youChose = document.querySelector('#you-chose');
+let round = document.querySelector('.round');
+
+
+
+const scoreElement = document.querySelector('.score');
+
+const retryBtnContainer = document.querySelector('.btn-rty-container');
+
+const retryButton = document.querySelector('#btn-retry');
+
+
+function setClickListener(e) {
+    let playerPlay = this.id
+    const computersPlay = computerPlay();
+    youChose.innerHTML = "You Chose " + playerPlay;
+
+    result = playRound(playerPlay, computersPlay);
+    resultText.innerHTML = result;
+    
+    scoreElement.innerHTML = "Score: " + score;
+    console.log(score);
+    buttons.forEach(button => button.disabled = true);
+    displayRetryButton();
+}
+
+buttons.forEach(button => button.addEventListener('click', setClickListener))
+
+
+function displayRetryButton() {
+    const button = document.createElement('button');
+    button.className = 'btn';
+    button.id = 'btn-retry';
+    button.innerText = 'Play Again?'
+    retryBtnContainer.appendChild(button);
+
+    button.addEventListener('click', function() {
+        roundCount++;
+        round.innerHTML = "Round: " + roundCount;
+        buttons.forEach(btn => btn.disabled = false);
+        retryBtnContainer.removeChild(button);
+    });
+}
+
 
 function computerPlay() {
     let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -25,6 +77,7 @@ function youLose(computerSelection) {
 }
 
 function youWin(computerSelection) {
+    score++;
     return "Computer has " + computerSelection + ", You Win!";
 }
 
@@ -75,13 +128,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 function game() {
-    console.log("Hello, Welcome to the game of Rock, Paper, Scissors.")
-
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt();
-        console.log("You chose " + playerSelection);
-        console.log(playRound(playerSelection, computerPlay()));
-    }
+    console.log("Hello, Welcome to the game of Rock, Paper, Scissors.");
 }
 
 game();
